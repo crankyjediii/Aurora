@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+
+  /* Aurora Colors */
+  --color-aurora-50: #f5f3ff;
+  --color-aurora-100: #ede9fe;
+  --color-aurora-200: #ddd6fe;
+  --color-aurora-300: #c4b5fd;
+  --color-aurora-400: #a78bfa;
+  --color-aurora-500: #8b5cf6;
+  --color-aurora-600: #7c3aed;
+  --color-aurora-700: #6d28d9;
+  --color-aurora-800: #5b21b6;
+  --color-aurora-900: #4c1d95;
+  --color-aurora-950: #2e1065;
+
+  /* Graphite Colors (Dashboard) */
+  --color-graphite-50: #f8f9fa;
+  --color-graphite-100: #f1f3f5;
+  --color-graphite-200: #e9ecef;
+  --color-graphite-300: #dee2e6;
+  --color-graphite-400: #ced4da;
+  --color-graphite-500: #adb5bd;
+  --color-graphite-600: #868e96;
+  --color-graphite-700: #495057;
+  --color-graphite-800: #343a40;
+  --color-graphite-900: #212529;
+  --color-graphite-950: #121212;
+
+  /* Charcoal Colors (Public Site) */
+  --color-charcoal-900: #0f0f11;
+  --color-charcoal-950: #08080a;
+
+  /* Custom Animations */
+  --animate-aurora-drift: aurora-drift 20s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes aurora-drift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+:root {
+  --background: #0f0f11; /* Charcoal 900 */
+  --foreground: #f8f9fa; /* Graphite 50 */
+}
+
+@layer utilities {
+  .bg-aurora-glow {
+    background-image: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(139, 92, 246, 0.15),
+      transparent 70%
+    );
+  }
+  .bg-glass-gradient {
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.01)
+    );
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
