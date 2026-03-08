@@ -1,43 +1,28 @@
 # Aurora — Session Log
 
 ## Current Status
-Aurora is currently in planning and front-end build preparation. The project memory system has been established in markdown so Antigravity can retain continuity by reading and updating these files every session.
+Aurora is currently in Sprint B (Dashboard Shell) phase. The marketing site front-end has been successfully built and polished in Sprint A.
 
 ## Last Completed
-- Defined Aurora’s product direction and design identity
-- Locked brand name as Aurora
-- Chose a mostly dark premium AI SaaS style
-- Chose purple as the lead accent color
-- Defined the split between a dramatic public site and a calmer dashboard
-- Created three planning docs:
-  - Visual Direction Brief
-  - Homepage Wireframe Brief
-  - Antigravity Sprint A Prompt
-- Created the repo memory/documentation files in root and `/docs`
+- Built the Sprint A marketing site shell (Home, Pricing, Library, Product Detail, Login, Signup)
+- Unified the design language with dark premium UI, purple-led accents, and cinematic glows
+- Polished layouts and transitions for the marketing pages
 
 ## In Progress
-- Preparing Antigravity to build Sprint A using the planning docs and memory system
+- Building Sprint B: the logged-in Dashboard shell
+- Implementing a softer, calmer, productivity-focused evolution of the Aurora design language
+- Building dashboard screens: Home, Library, Explore, Tool Finder, Chat Assistant, Billing, Settings, and an Onboarding flow
 
 ## Open Issues
 - Domain and trademark validation for the name “Aurora” have not been completed
-- The final marketing copy has not been fully locked beyond brief-level direction
-- A production design token system has not yet been codified in code
-- Backend schema has not yet been implemented
-- Pricing amounts are still subject to refinement
+- Backend schema (Convex), real Auth, and Payments (Stripe) are deferred to later phases
+- Actual product entitlements and download logic are deferred
 
 ## Current Phase
-Phase 0 / Planning and project-memory setup
+Phase 2 / Dashboard Shell
 
 ## Next Best Task
-Start a fresh Antigravity project for Aurora and provide it with:
-1. `PROJECT_CONTEXT.md`
-2. `SESSION.md`
-3. `IMPLEMENTATION_PHASES.md`
-4. `docs/DECISIONS.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/ROADMAP.md`
-
-Then provide the visual direction brief, homepage wireframe brief, and Sprint A build prompt so it can generate the first front-end marketing site.
+Execute the Sprint B front-end plan to completion, using only mock data, ensuring responsive and highly polished dashboard UI.
 
 ## Recommended Antigravity Session Opening
 
@@ -62,4 +47,4 @@ After completing work:
 ```
 
 ## Notes for Next Session
-The next real build step is Sprint A: front-end-only marketing site generation with mock data. Do not move to backend, Stripe, or Convex until the marketing site and design language feel locked.
+Continue building out the dashboard shell component by component. No real backend yet. Ensure the UI feels guided, organized, and calmer than the marketing site while keeping the premium aesthetic.

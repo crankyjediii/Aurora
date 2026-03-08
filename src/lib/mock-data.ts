@@ -75,7 +75,7 @@ export const PRODUCT_CATEGORIES = [
     id: "teams",
     title: "Team Packs",
     description: "Resources for onboarding and scaling AI across staff.",
-    icon: "Users3",
+    icon: "Users",
   },
 ]
 
@@ -137,4 +137,55 @@ export const FEATURED_RESOURCES = [
     rating: "5.0",
     icon: "Workflow"
   },
+]
+
+// --- DASHBOARD MOCK DATA ---
+
+export const MOCK_USER = {
+  name: "Jane Doe",
+  email: "jane@example.com",
+  plan: "Solo Plan",
+  initials: "JD",
+}
+
+export const USAGE_STATS = {
+  activeTools: 4,
+  runningWorkflows: 2,
+  monthlyCost: 24.00,
+  tokensUsed: "1.2M",
+}
+
+export const SAVED_ITEMS = [
+  {
+    id: "claude-pro-guide",
+    title: "The Claude 3 Pro Guide",
+    type: "Tool Guide",
+    icon: "BookOpen",
+    color: "aurora"
+  },
+  {
+    id: "marketing-prompt-system",
+    title: "Marketing Copy System",
+    type: "Prompt System",
+    icon: "Workflow",
+    color: "indigo"
+  }
+]
+
+export const CHAT_HISTORY = [
+  {
+    id: 1,
+    title: "Claude vs ChatGPT for coding...",
+    date: "2 hours ago"
+  },
+  {
+    id: 2,
+    title: "Help setting up Agency Flow",
+    date: "Yesterday"
+  },
+  {
+    id: 3,
+    title: "Token cost calculation help",
+    date: "Mar 4, 2026"
+  }
 ]

@@ -40,7 +40,7 @@ Establish product direction, brand rules, build sequencing, and persistent repo-
 ---
 
 ## Phase 1 — Marketing Site Shell
-**Status:** Not Started
+**Status:** Complete
 
 ### Goal
 Build a polished front-end marketing website for Aurora using mock data only.
@@ -76,7 +76,7 @@ Build a polished front-end marketing website for Aurora using mock data only.
 ---
 
 ## Phase 2 — Dashboard Shell
-**Status:** Not Started
+**Status:** In Progress
 
 ### Goal
 Build the logged-in dashboard experience with mock data only.

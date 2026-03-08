@@ -15,7 +15,7 @@ export function Navbar() {
           </Link>
           
           <div className="hidden md:flex gap-6">
-            <Link href="#solutions" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
+            <Link href="/solutions" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
               Solutions
             </Link>
             <Link href="/library" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
@@ -24,13 +24,17 @@ export function Navbar() {
             <Link href="/pricing" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
               Pricing
             </Link>
-            <Link href="#learn" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
+            <Link href="/learn" className="text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50">
               Learn
             </Link>
           </div>
         </div>
 
         <div className="flex items-center gap-4">
+          <Link href="/dashboard" className="hidden text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50 md:block">
+            Dashboard
+          </Link>
+          <div className="hidden h-4 w-px bg-graphite-800 md:block" />
           <Link href="/login" className="hidden text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50 md:block">
             Login
           </Link>

@@ -20,16 +20,16 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-graphite-400">
               <li><Link href="/library" className="hover:text-aurora-400 transition-colors">Library</Link></li>
               <li><Link href="/pricing" className="hover:text-aurora-400 transition-colors">Pricing</Link></li>
-              <li><Link href="#solutions" className="hover:text-aurora-400 transition-colors">Solutions</Link></li>
+              <li><Link href="/solutions" className="hover:text-aurora-400 transition-colors">Solutions</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="mb-4 text-sm font-semibold text-graphite-100">Learn</h4>
             <ul className="space-y-3 text-sm text-graphite-400">
-              <li><Link href="#guides" className="hover:text-aurora-400 transition-colors">Tool Guides</Link></li>
-              <li><Link href="#prompts" className="hover:text-aurora-400 transition-colors">Prompt Systems</Link></li>
-              <li><Link href="#workflows" className="hover:text-aurora-400 transition-colors">Workflow Kits</Link></li>
+              <li><Link href="/learn" className="hover:text-aurora-400 transition-colors">Learning Center</Link></li>
+              <li><Link href="/learn" className="hover:text-aurora-400 transition-colors">Tool Guides</Link></li>
+              <li><Link href="/learn" className="hover:text-aurora-400 transition-colors">Prompt Systems</Link></li>
             </ul>
           </div>
 
