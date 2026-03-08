@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FEATURED_RESOURCES, PRODUCT_CATEGORIES } from "@/lib/mock-data"
-import { Search, Filter, BookOpen, TerminalSquare, Calculator, Workflow, Users } from "lucide-react"
+import { Search, Filter, BookOpen, TerminalSquare, Calculator, Workflow, Users, Star, LucideIcon } from "lucide-react"
 import Link from "next/link"
 
-const IconMap: Record<string, any> = {
+const IconMap: Record<string, LucideIcon> = {
   "Tool Guides": BookOpen,
   "Prompt Systems": TerminalSquare,
   "Cost & Token Resources": Calculator,
@@ -74,28 +74,56 @@ export default function LibraryPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Link href={`/products/${resource.id}`}>
-                  <Card className="h-full group cursor-pointer border-graphite-800 hover:border-aurora-500/50 transition-all duration-300 bg-charcoal-950 overflow-hidden flex flex-col">
+                <Link href={`/products/${resource.id}`} className="block h-full">
+                  <Card className="h-full group cursor-pointer border-graphite-800 hover:border-aurora-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.15)] hover:-translate-y-1 transition-all duration-300 bg-charcoal-950 overflow-hidden flex flex-col relative">
+                     {/* Access Ribbon/Line */}
+                     {resource.access === "premium" && (
+                        <div className="absolute top-0 left-0 w-full h-[3px] bg-linear-to-r from-aurora-500 to-indigo-500 z-20" />
+                     )}
+                     {resource.access === "solo" && (
+                        <div className="absolute top-0 left-0 w-full h-[3px] bg-graphite-600 z-20" />
+                     )}
+
                     {/* Fake Image Container */}
-                    <div className="w-full h-48 bg-graphite-900 border-b border-graphite-800 relative overflow-hidden flex items-center justify-center">
-                       <CategoryIcon className="w-16 h-16 text-graphite-800 group-hover:text-aurora-900/40 transition-colors duration-500" />
-                       <div className="absolute inset-0 bg-linear-to-t from-charcoal-950 to-transparent opacity-80" />
-                       <div className="absolute bottom-4 left-4">
-                         <Badge variant="secondary" className="bg-charcoal-900 border-graphite-700 text-xs">
-                           {resource.category}
-                         </Badge>
+                    <div className="w-full h-40 bg-graphite-900 border-b border-graphite-800 relative flex flex-col items-center justify-center p-6">
+                       <CategoryIcon className="w-12 h-12 text-graphite-700 group-hover:text-aurora-500/50 transition-colors duration-500 mb-2" />
+                       <div className="text-graphite-500 font-medium text-lg uppercase tracking-widest opacity-50">{resource.category}</div>
+                       
+                       <div className="absolute inset-0 bg-linear-to-t from-charcoal-950 via-charcoal-950/80 to-transparent opacity-90" />
+                       
+                       <div className="absolute top-4 right-4 z-10">
+                          {resource.access === "premium" ? (
+                             <Badge className="bg-aurora-500/20 text-aurora-300 border-aurora-500/30 font-medium backdrop-blur-md">Premium</Badge>
+                          ) : resource.access === "solo" ? (
+                             <Badge variant="secondary" className="bg-graphite-800/80 text-graphite-300 border-graphite-700 font-medium backdrop-blur-md">Included</Badge>
+                          ) : (
+                             <Badge variant="outline" className="text-graphite-400 border-graphite-700 font-medium backdrop-blur-md bg-charcoal-950/50">Free</Badge>
+                          )}
                        </div>
                     </div>
-                    <CardHeader>
-                      <CardTitle className="text-xl group-hover:text-aurora-50 transition-colors w-full truncate">{resource.title}</CardTitle>
-                      <CardDescription className="line-clamp-2 text-graphite-400 mt-2">
+
+                    <CardHeader className="pt-5 flex-1 relative z-10">
+                      <div className="flex items-center justify-between mb-3 text-xs text-graphite-400">
+                        <div className="flex items-center gap-2">
+                           <span className="font-medium text-graphite-300">{resource.author}</span>
+                        </div>
+                        {resource.rating && (
+                           <div className="flex items-center gap-1 text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full font-medium">
+                              <Star className="w-3 h-3 fill-current" />
+                              <span>{resource.rating}</span>
+                           </div>
+                        )}
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-aurora-50 transition-colors line-clamp-1">{resource.title}</CardTitle>
+                      <CardDescription className="line-clamp-2 text-graphite-400 mt-2 leading-relaxed">
                         {resource.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardFooter className="mt-auto pt-4 flex justify-between items-center border-t border-graphite-800/50">
-                      <span className="text-sm font-medium text-white">{resource.price}</span>
-                      <span className="text-aurora-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 duration-300">
-                        View Details →
+                    
+                    <CardFooter className="mt-auto pt-4 pb-5 flex justify-between items-center border-t border-graphite-800/50 bg-charcoal-950/50">
+                      <span className="text-sm font-semibold text-white">{resource.price}</span>
+                      <span className="text-aurora-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0 duration-300">
+                        View details &rarr;
                       </span>
                     </CardFooter>
                   </Card>

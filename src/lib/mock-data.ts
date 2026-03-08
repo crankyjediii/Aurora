@@ -108,6 +108,10 @@ export const FEATURED_RESOURCES = [
     description: "Everything you need to master Anthropic's flagship model for long-form writing and coding.",
     image: "/mock-cover-claude.jpg", 
     price: "Included in Solo",
+    access: "solo",
+    author: "Aurora Team",
+    rating: "4.9",
+    icon: "BookOpen"
   },
   {
     id: "marketing-prompt-system",
@@ -115,7 +119,11 @@ export const FEATURED_RESOURCES = [
     category: "Prompt Systems",
     description: "Copywriting prompts engineered for brand consistency and high conversion.",
     image: "/mock-cover-marketing.jpg",
-    price: "Included in Solo",
+    price: "Free",
+    access: "free",
+    author: "Jane Doe",
+    rating: "4.8",
+    icon: "TerminalSquare"
   },
   {
     id: "agency-workflow",
@@ -124,5 +132,9 @@ export const FEATURED_RESOURCES = [
     description: "Automate client drafting and reporting with this connected AI workflow.",
     image: "/mock-cover-agency.jpg",
     price: "$49 one-time",
+    access: "premium",
+    author: "Aurora Team",
+    rating: "5.0",
+    icon: "Workflow"
   },
 ]
