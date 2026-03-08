@@ -70,8 +70,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[450px] md:h-[550px] w-full flex items-center justify-center overflow-hidden"
           >
-            {/* Background Glow */}
-            <div className="absolute inset-0 bg-aurora-900/10 blur-[80px]" />
+            {/* Background Glow & Depth */}
+            <div className="absolute inset-0 bg-aurora-900/10 blur-[100px]" />
+            <div className="absolute inset-0 bg-linear-to-tr from-aurora-500/15 via-transparent to-indigo-500/15 blur-[80px] mix-blend-screen" />
+            <div className="absolute inset-0 border border-white/5 rounded-3xl" />
             
             {/* Layered Cards Composite */}
             <motion.div 
@@ -148,7 +150,8 @@ export default function Home() {
       </section>
 
       {/* 4. PROBLEM / PAIN SECTION */}
-      <section className="w-full py-24 md:py-32">
+      <section className="w-full py-24 md:py-32 relative bg-graphite-950">
+        <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-graphite-800 to-transparent" />
         <div className="container mx-auto px-4 flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-6 font-normal tracking-wide">The Status Quo</Badge>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 max-w-2xl">
@@ -190,33 +193,40 @@ export default function Home() {
       </section>
 
       {/* 4.5 BUILT FOR SECTION */}
-      <section className="w-full py-24 bg-charcoal-950/50 border-t border-graphite-800/30">
-        <div className="container mx-auto px-4">
+      <section className="w-full py-24 bg-charcoal-950 relative border-t border-graphite-800/30">
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal-900/10 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
            <div className="text-center mb-16">
-             <h2 className="text-sm font-semibold tracking-wider text-aurora-400 uppercase">Who is Aurora for?</h2>
+             <h2 className="text-sm font-semibold tracking-widest text-aurora-400 uppercase">Who is Aurora for?</h2>
            </div>
-           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-             <div className="flex flex-col items-center text-center">
-               <div className="w-16 h-16 rounded-2xl bg-graphite-900 border border-graphite-800 flex items-center justify-center mb-6 shadow-xl">
-                 <Users className="w-8 h-8 text-graphite-300" />
+           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+             <Card className="group flex flex-col items-center text-center p-8 bg-charcoal-950 border-graphite-800/50 hover:border-aurora-500/40 hover:bg-graphite-900/50 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-[0_10px_40px_rgba(139,92,246,0.1)] relative overflow-hidden">
+               <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-aurora-500/0 group-hover:via-aurora-500/50 to-transparent transition-colors duration-500" />
+               <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-graphite-800 to-graphite-900 border border-graphite-700 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
+                 <div className="absolute inset-0 bg-aurora-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 <Users className="w-8 h-8 text-graphite-400 group-hover:text-aurora-300 relative z-10 transition-colors duration-500" />
                </div>
-               <h3 className="text-xl font-semibold text-white mb-3">Individuals</h3>
-               <p className="text-graphite-400 text-base max-w-xs leading-relaxed">Professionals wanting to safely explore AI without getting overwhelmed by tech jargon or scattered subscriptions.</p>
-             </div>
-             <div className="flex flex-col items-center text-center">
-               <div className="w-16 h-16 rounded-2xl bg-graphite-900 border border-graphite-800 flex items-center justify-center mb-6 shadow-xl">
-                 <BookOpen className="w-8 h-8 text-graphite-300" />
+               <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-aurora-50 transition-colors">Individuals</h3>
+               <p className="text-graphite-400 text-sm max-w-[260px] leading-relaxed">Professionals wanting to safely explore AI without getting overwhelmed by tech jargon or scattered subscriptions.</p>
+             </Card>
+             <Card className="group flex flex-col items-center text-center p-8 bg-charcoal-950 border-graphite-800/50 hover:border-aurora-500/40 hover:bg-graphite-900/50 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-[0_10px_40px_rgba(139,92,246,0.1)] relative overflow-hidden">
+               <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-aurora-500/0 group-hover:via-aurora-500/50 to-transparent transition-colors duration-500" />
+               <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-graphite-800 to-graphite-900 border border-graphite-700 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
+                 <div className="absolute inset-0 bg-aurora-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 <BookOpen className="w-8 h-8 text-graphite-400 group-hover:text-aurora-300 relative z-10 transition-colors duration-500" />
                </div>
-               <h3 className="text-xl font-semibold text-white mb-3">Educators & Students</h3>
-               <p className="text-graphite-400 text-base max-w-xs leading-relaxed">Those looking for structured learning paths and engineered prompts to dramatically improve academic workflows.</p>
-             </div>
-             <div className="flex flex-col items-center text-center">
-               <div className="w-16 h-16 rounded-2xl bg-graphite-900 border border-graphite-800 flex items-center justify-center mb-6 shadow-xl">
-                 <Workflow className="w-8 h-8 text-graphite-300" />
+               <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-aurora-50 transition-colors">Educators & Students</h3>
+               <p className="text-graphite-400 text-sm max-w-[260px] leading-relaxed">Those looking for structured learning paths and engineered prompts to dramatically improve academic workflows.</p>
+             </Card>
+             <Card className="group flex flex-col items-center text-center p-8 bg-charcoal-950 border-graphite-800/50 hover:border-aurora-500/40 hover:bg-graphite-900/50 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-[0_10px_40px_rgba(139,92,246,0.1)] relative overflow-hidden">
+               <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-aurora-500/0 group-hover:via-aurora-500/50 to-transparent transition-colors duration-500" />
+               <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-graphite-800 to-graphite-900 border border-graphite-700 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
+                 <div className="absolute inset-0 bg-aurora-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 <Workflow className="w-8 h-8 text-graphite-400 group-hover:text-aurora-300 relative z-10 transition-colors duration-500" />
                </div>
-               <h3 className="text-xl font-semibold text-white mb-3">Agencies & Teams</h3>
-               <p className="text-graphite-400 text-base max-w-xs leading-relaxed">Managers needing a centralized hub to distribute standardized AI tools and cost controls across their staff.</p>
-             </div>
+               <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-aurora-50 transition-colors">Agencies & Teams</h3>
+               <p className="text-graphite-400 text-sm max-w-[260px] leading-relaxed">Managers needing a centralized hub to distribute standardized AI tools and cost controls across their staff.</p>
+             </Card>
            </div>
         </div>
       </section>
@@ -437,20 +447,22 @@ export default function Home() {
       </section>
 
       {/* 11. FINAL CTA */}
-      <section className="w-full py-24 md:py-40 relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-aurora-900/20 border-t border-aurora-500/10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-aurora-600/20 blur-[100px] rounded-full pointer-events-none" />
+      <section className="w-full py-24 md:py-40 relative overflow-hidden flex items-center justify-center bg-graphite-950">
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal-950 to-aurora-900/20 border-t border-aurora-500/10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-linear-to-r from-aurora-600/30 via-indigo-500/20 to-aurora-600/30 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
+        <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-aurora-500/30 to-transparent" />
         
         <div className="container mx-auto px-4 relative z-10 text-center flex flex-col items-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Build your AI stack the smarter way.</h2>
-          <p className="text-xl text-graphite-300 mb-10 max-w-2xl">
+          <Badge className="mb-6 bg-aurora-500/10 text-aurora-300 border-aurora-500/20 hover:bg-aurora-500/20 px-4 py-1.5 backdrop-blur-md">Start building today</Badge>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">Build your AI stack the smarter way.</h2>
+          <p className="text-xl text-graphite-300 mb-10 max-w-2xl drop-shadow-md">
             Use AI with more confidence and less guesswork. Join thousands of professionals finding clarity inside Aurora.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="rounded-full shadow-[0_0_30px_rgba(139,92,246,0.5)] px-10 text-lg h-14">
-              Start Free
+            <Button size="lg" className="rounded-full shadow-[0_0_40px_rgba(139,92,246,0.6)] px-10 text-lg h-14 font-semibold hover:scale-105 transition-transform duration-300">
+              Start your free trial
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-10 text-lg h-14 bg-charcoal-900/50 backdrop-blur-sm border-graphite-700">
+            <Button size="lg" variant="outline" className="rounded-full px-10 text-lg h-14 bg-charcoal-900/50 backdrop-blur-xl border-graphite-700 hover:bg-charcoal-800 transition-colors">
               Explore Pricing
             </Button>
           </div>
