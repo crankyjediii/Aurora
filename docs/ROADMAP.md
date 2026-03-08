@@ -50,7 +50,7 @@ Focus:
 - basic personalization
 
 Outcome:
-- Aurora becomes user-aware instead of static
+- Aurora becomes user-aware instead of static (COMPLETED)
 
 ## Phase 4 — Access, Products, and Entitlements
 Focus:
@@ -149,4 +149,4 @@ Aurora is betting that users will pay for:
 
 ## Current Recommended Next Step
 
-The immediate next step is to use Antigravity to generate Sprint A: the front-end-only marketing site using the existing visual direction, homepage wireframe, and Sprint A build prompt.
+The immediate next step is to begin Phase 4 / Sprint D: framing out the product schema in Convex, defining the available resources/materials, and building the entitlement and access control layer so the dashboard can correctly lock and unlock content based on user state.

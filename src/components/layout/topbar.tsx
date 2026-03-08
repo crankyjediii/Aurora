@@ -1,6 +1,6 @@
 "use client"
 
-import { Search, Bell } from "lucide-react"
+import { Search } from "lucide-react"
 import { MobileSidebar } from "./mobile-sidebar"
 
 export function Topbar() {
@@ -28,15 +28,6 @@ export function Topbar() {
             className="h-9 w-64 rounded-full border border-graphite-800 bg-graphite-900/50 pl-9 pr-4 text-sm text-graphite-200 placeholder:text-graphite-500 focus:outline-none focus:ring-1 focus:ring-aurora-500 focus:border-aurora-500 transition-all"
           />
         </div>
-        
-        <button className="relative text-graphite-400 hover:text-white transition-colors">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-0 right-0 w-2 h-2 rounded-full bg-aurora-500 shadow-[0_0_8px_rgba(139,92,246,0.8)] border border-charcoal-950"></span>
-        </button>
-
-        <button className="w-8 h-8 rounded-full bg-linear-to-br from-aurora-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shadow-sm hover:opacity-90 transition-opacity">
-          JD
-        </button>
       </div>
     </header>
   )

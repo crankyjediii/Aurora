@@ -4,25 +4,70 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Sparkles, Briefcase, Lightbulb, PenTool, ArrowRight, CheckCircle2, Loader2, Workflow, MessageSquare } from "lucide-react"
+import { 
+  ArrowRight, CheckCircle2, Loader2,
+  User, UserRound, GraduationCap, Building2, Users,
+  PenTool, Zap, Settings, Cpu, Search, Lightbulb,
+  Sparkles, Target, Rocket,
+  Clock, DollarSign, Star, Gauge,
+  MessageSquare, MessageSquareText, FileText, Workflow, MoreHorizontal
+} from "lucide-react"
+import { useMutation } from "convex/react"
 
 const STEPS = [
   {
-    title: "What is your primary goal with Aurora?",
-    subtitle: "We'll customize your dashboard based on what you want to achieve.",
+    title: "Who are you?",
+    subtitle: "We'll customize your dashboard based on what you do.",
     options: [
-      { id: "efficiency", label: "Automate Daily Work", icon: Briefcase },
-      { id: "writing", label: "Improve Content Creation", icon: PenTool },
-      { id: "learning", label: "Learn AI Prompting", icon: Lightbulb },
+      { id: "individual", label: "Individual", icon: User },
+      { id: "freelancer", label: "Freelancer", icon: UserRound },
+      { id: "educator", label: "Educator / Student", icon: GraduationCap },
+      { id: "business", label: "Business owner", icon: Building2 },
+      { id: "agency", label: "Agency / Team lead", icon: Users },
     ]
   },
   {
-    title: "How experienced are you with AI?",
+    title: "What do you want help with?",
+    subtitle: "Select your primary focus area.",
+    options: [
+      { id: "content", label: "Content", icon: PenTool },
+      { id: "productivity", label: "Productivity", icon: Zap },
+      { id: "operations", label: "Operations", icon: Settings },
+      { id: "automation", label: "Automation", icon: Cpu },
+      { id: "research", label: "Research", icon: Search },
+      { id: "learning", label: "Learning AI basics", icon: Lightbulb },
+    ]
+  },
+  {
+    title: "What is your experience level?",
     subtitle: "This helps us recommend the right tool guides and systems.",
     options: [
       { id: "beginner", label: "Beginner", icon: Sparkles },
-      { id: "intermediate", label: "Intermediate", icon: Workflow },
-      { id: "advanced", label: "Advanced", icon: MessageSquare },
+      { id: "intermediate", label: "Intermediate", icon: Target },
+      { id: "advanced", label: "Advanced", icon: Rocket },
+    ]
+  },
+  {
+    title: "What is your primary goal?",
+    subtitle: "What is the main outcome you want from Aurora?",
+    options: [
+      { id: "time", label: "Save time", icon: Clock },
+      { id: "cost", label: "Reduce costs", icon: DollarSign },
+      { id: "quality", label: "Improve quality", icon: Star },
+      { id: "automate", label: "Automate tasks", icon: Zap },
+      { id: "learn", label: "Learn tools faster", icon: Gauge },
+    ]
+  },
+  {
+    title: "Current tools (Optional)",
+    subtitle: "Which is your primary tool today?",
+    options: [
+      { id: "chatgpt", label: "ChatGPT", icon: MessageSquare },
+      { id: "claude", label: "Claude", icon: MessageSquareText },
+      { id: "gemini", label: "Gemini", icon: Sparkles },
+      { id: "notion", label: "Notion", icon: FileText },
+      { id: "zapier", label: "Zapier", icon: Workflow },
+      { id: "other", label: "Other", icon: MoreHorizontal },
     ]
   }
 ]
@@ -32,20 +77,25 @@ export default function OnboardingFlow() {
   const [currentStep, setCurrentStep] = useState(0)
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [isFinishing, setIsFinishing] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const updateOnboarding = useMutation("users:updateOnboardingState" as any)
 
   const handleSelect = (optionId: string) => {
     setAnswers(prev => ({ ...prev, [currentStep]: optionId }))
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < STEPS.length - 1) {
       setCurrentStep(prev => prev + 1)
     } else {
       setIsFinishing(true)
-      // Simulate setup
-      setTimeout(() => {
+      try {
+        await updateOnboarding({ status: "completed", data: answers })
         router.push("/dashboard")
-      }, 2500)
+      } catch (err) {
+        console.error("Failed to save onboarding state", err)
+        router.push("/dashboard") // Proceed anyway for resilience
+      }
     }
   }
 

@@ -4,14 +4,14 @@
 Aurora is currently in Sprint B (Dashboard Shell) phase. The marketing site front-end has been successfully built and polished in Sprint A.
 
 ## Last Completed
-- Built the Sprint A marketing site shell (Home, Pricing, Library, Product Detail, Login, Signup)
-- Unified the design language with dark premium UI, purple-led accents, and cinematic glows
-- Polished layouts and transitions for the marketing pages
+- Built the Sprint B logged-in Dashboard shell with softer productivity UI
+- Built Sprint C (Auth & Onboarding), connecting Clerk for auth and Convex for database
+- Replaced mock login/signup pages with real Clerk components inside the Aurora layout
+- Protected `/dashboard` routes and added persistent onboarding data
 
 ## In Progress
-- Building Sprint B: the logged-in Dashboard shell
-- Implementing a softer, calmer, productivity-focused evolution of the Aurora design language
-- Building dashboard screens: Home, Library, Explore, Tool Finder, Chat Assistant, Billing, Settings, and an Onboarding flow
+- Finalizing the Onboarding flow 5-step detailed UI
+- Transitioning to Sprint D (Phase 4): Product Access and Entitlements
 
 ## Open Issues
 - Domain and trademark validation for the name “Aurora” have not been completed
@@ -19,10 +19,10 @@ Aurora is currently in Sprint B (Dashboard Shell) phase. The marketing site fron
 - Actual product entitlements and download logic are deferred
 
 ## Current Phase
-Phase 2 / Dashboard Shell
+Phase 3 / Auth Complete -> moving to Phase 4 / Product Access and Entitlements
 
 ## Next Best Task
-Execute the Sprint B front-end plan to completion, using only mock data, ensuring responsive and highly polished dashboard UI.
+Implement product access handling, products schema in Convex, plan definitions, and locked/unlocked content states.
 
 ## Recommended Antigravity Session Opening
 
@@ -47,4 +47,4 @@ After completing work:
 ```
 
 ## Notes for Next Session
-Continue building out the dashboard shell component by component. No real backend yet. Ensure the UI feels guided, organized, and calmer than the marketing site while keeping the premium aesthetic.
+Start wiring the entitlements layer. Authentication and profile persistence is working on Convex/Clerk. Next step is defining the product schema so users can actually own and access content.

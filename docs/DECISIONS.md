@@ -141,6 +141,17 @@ This file records important project decisions so future sessions do not repeated
 ---
 
 ## Decision 13
+**Decision:** Auth Provider is Clerk tying into Convex for data persistence
+
+**Status:** Current decision
+
+**Reason:** Clerk provides drop-in robust auth matching the premium visual style, and perfectly integrates with Convex.
+
+**Impact:** User identity is managed by Clerk, but profile data and onboarding state syncs to Convex on first dashboard load via `EnsureUser` component.
+
+---
+
+## Decision 14
 **Decision:** The project should maintain markdown-based memory files in the repo
 
 **Status:** Current decision

@@ -1,5 +1,6 @@
 import { Sidebar } from "@/components/layout/sidebar"
 import { Topbar } from "@/components/layout/topbar"
+import { EnsureUser } from "@/components/auth/ensure-user"
 
 export default function DashboardLayout({
   children,
@@ -12,7 +13,9 @@ export default function DashboardLayout({
       <div className="flex flex-col flex-1 w-full md:pl-64 h-screen">
         <Topbar />
         <main className="flex-1 w-full p-4 md:p-8 overflow-y-auto overflow-x-hidden pb-32">
-          {children}
+          <EnsureUser>
+            {children}
+          </EnsureUser>
         </main>
       </div>
     </div>

@@ -76,7 +76,7 @@ Build a polished front-end marketing website for Aurora using mock data only.
 ---
 
 ## Phase 2 — Dashboard Shell
-**Status:** In Progress
+**Status:** Complete
 
 ### Goal
 Build the logged-in dashboard experience with mock data only.
@@ -112,7 +112,7 @@ Build the logged-in dashboard experience with mock data only.
 ---
 
 ## Phase 3 — Auth and User State
-**Status:** Not Started
+**Status:** Complete
 
 ### Goal
 Make the application aware of the user and support onboarding persistence.
@@ -136,7 +136,7 @@ Make the application aware of the user and support onboarding persistence.
 ---
 
 ## Phase 4 — Product Access and Entitlements
-**Status:** Not Started
+**Status:** In Progress
 
 ### Goal
 Connect users to resources they own or are entitled to access.

@@ -2,8 +2,12 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useAuth, UserButton } from "@clerk/nextjs"
+import { Bell } from "lucide-react"
 
 export function Navbar() {
+  const { isLoaded, isSignedIn } = useAuth();
+
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-graphite-800/50 bg-charcoal-950/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -31,16 +35,28 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="hidden text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50 md:block">
-            Dashboard
-          </Link>
-          <div className="hidden h-4 w-px bg-graphite-800 md:block" />
-          <Link href="/login" className="hidden text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50 md:block">
-            Login
-          </Link>
-          <Button asChild className="rounded-full shadow-[0_0_15px_rgba(139,92,246,0.3)]">
-            <Link href="/signup">Start Free</Link>
-          </Button>
+          {!isLoaded ? null : isSignedIn ? (
+            <>
+              <button className="relative text-graphite-400 hover:text-white transition-colors">
+                <Bell className="w-5 h-5" />
+                <span className="absolute top-0 right-0 w-2 h-2 rounded-full bg-aurora-500 shadow-[0_0_8px_rgba(139,92,246,0.8)] border border-charcoal-950"></span>
+              </button>
+              <UserButton appearance={{ 
+                elements: { 
+                  avatarBox: "w-8 h-8 rounded-full shadow-sm hover:opacity-90 transition-opacity" 
+                } 
+              }} />
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="hidden text-sm font-medium text-graphite-300 transition-colors hover:text-graphite-50 md:block">
+                Login
+              </Link>
+              <Button asChild className="rounded-full shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                <Link href="/signup">Start Free</Link>
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </nav>

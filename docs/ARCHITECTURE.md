@@ -45,6 +45,12 @@ The marketing site and dashboard should share brand DNA, but the dashboard must 
 - route structure for marketing + app sections
 - scalable for future auth, billing, and dynamic data
 
+### Authentication
+**Clerk**
+- handles identity management, signup, login
+- drop-in customizable UI elements matching Aurora brand
+- tied to Next.js middleware for route protection
+
 ### Hosting / Deployment
 **Vercel**
 - natural deployment path for Next.js
@@ -183,8 +189,7 @@ Current source-of-truth inputs for early architecture work:
 ## Open Architecture Questions
 
 Still to be finalized later:
-- final auth provider path
-- exact Convex schema details
+- stripe billing & pricing modeling details
 - file storage implementation choice/details
 - resource content delivery model
 - chatbot tooling boundaries
